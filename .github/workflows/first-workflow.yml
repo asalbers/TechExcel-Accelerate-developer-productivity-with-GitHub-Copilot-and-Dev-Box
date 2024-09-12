@@ -4,15 +4,18 @@ on:
   workflow_dispatch:
   issues:
     types: [opened]
+env:
+  test: "Step 1 complete!"
+  test2: "Step 2 complete!"
 
 jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
       - name: Echo Job 1 Step 1
-        run: echo "Step 1 complete!"
+        run: echo ${{ env.test }}
       - name: Echo Job 1 Step 2
-        run: echo "Step 2 complete!"
+        run: echo ${{ env.test2 }}
 
   job2:
     runs-on: ubuntu-latest
